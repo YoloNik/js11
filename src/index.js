@@ -1,52 +1,47 @@
-import card from './templates/card.hbs';
-import FetchAPI from './fetchAPI';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-import Notiflix from 'notiflix';
+import FetchAPI from './js/fetchApi';
+import movieCard from './templates/movieCard.hbs';
 
 const fetchAPI = new FetchAPI();
 
-const userInput = document.getElementById(`search-form`);
-const cardContainer = document.querySelector(`.gallery`);
-const LoadMoreBtn = document.querySelector(`.load-more`);
+const searchQuery = document.getElementById(`search-form`);
+const movieGallery = document.querySelector(`.gallery`);
 
-userInput.addEventListener(`click`, onSearchBtn);
-LoadMoreBtn.addEventListener(`click`, onLoadMoreBtn);
+//console.log(searchQuery);
+
+searchQuery.addEventListener(`click`, onSearchBtn);
 
 function onSearchBtn(e) {
   if (e.target.closest(`button`)) {
     e.preventDefault();
-    fetchAPI.value = e.currentTarget.elements[0].value;
-    fetchAPI.fetchData().then(data => {
-      createCards(data);
-      LoadMoreBtn.style.visibility = 'visible';
-
-      if (data.total === 0) {
-        LoadMoreBtn.style.visibility = 'hidden';
-        cardContainer.innerHTML = '';
-        Notiflix.Notify.failure(
-          'Sorry, there are no images matching your search query. Please try again.',
-        );
-      } else {
-        Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
-        cardContainer.innerHTML = createCards(data);
-        const lightbox = new SimpleLightbox('.photo-card a');
-      }
+    fetchAPI.query = e.currentTarget.elements[0].value;
+    fetchAPI.fetchMovie().then(data => {
+      //createCards(data);
+      fetchAPI.getGenres().then(geners => {
+        createCards(data, geners);
+        //console.log(data, geners);
+      });
+      movieGallery.innerHTML = createCards(data);
     });
   }
 }
 
-function onLoadMoreBtn(e) {
-  fetchAPI.fetchData().then(data => {
-    cardContainer.insertAdjacentHTML(`beforeend`, createCards(data));
-    const lightbox = new SimpleLightbox('.photo-card a');
-  });
-}
-
-function createCards(data) {
-  return data.hits
+function createCards(data, geners) {
+  //console.log(data.results);
+  let movieData = data.results
     .map(el => {
-      return card(el);
+      console.log(el);
+      for (let key in geners) {
+        if (el.genre_ids.includes(key)) {
+          movieCard(el);
+        }
+      }
     })
     .join('');
 }
+//  console.log(movieData);
+//  let gener;
+//  if (movieData.genre_ids.include(fetchAPI.genres[key])) {
+//  }
+//}
+//	fetchAPI.genres;
+//console.log(gener);

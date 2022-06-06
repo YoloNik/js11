@@ -3,21 +3,19 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://yolonik.github.io/js11/",
+  "homepage": "https://yolonik.github.io/filmoteka_v2/",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /js11/"
+    "build": "parcel build src/*.html --public-url /filmoteka_v2/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YoloNik/js11.git"
+    "url": "git+https://github.com/YoloNik/filmoteka_v2"
   },
   "keywords": [],
   "author": "Nikita Slipachuk <nikitaslipachuk@gmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
-  },
+ 
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",

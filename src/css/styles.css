@@ -2,7 +2,9 @@
   box-sizing: border-box;
 
 }
-
+p, h2 {
+	margin: 0;
+}
 body {
 font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -15,88 +17,127 @@ font-size: 14px;
 	margin: 0;
 	padding: 0;
 }
+/*-------------------header section start---------------*/
+.section-header{
+	height: 230px;
+	background: url(../img/Rectangle.jpg) no-repeat center ;
+	background-size: cover;
+	padding: 40px 71px ;
+}
+.header-top{
+	max-width: 882px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+}
 
-#search-form {
+.logo{
+	height: 35px;
 	display: flex;
 	justify-content: center;
-	position: fixed;
-	width: 100%;
-	margin-bottom: 20px;
-	z-index: 1;
-	background-color: #d234eb;
-  font: inherit;
-  padding: 8px;
-  margin-bottom: 16px;
-	height: 45px;
+	align-items: center;		
+}
+.header-logo{
+	text-decoration: none;
+}
+.logo img {
+	width: 24px;
+	height: 24px;
+	margin-right: 12px;
+	margin-top: 2px;
+}
+.logo h1{
+	color: #ffffff;
 }
 
-#search-form input:focus {
-	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.4);
-	background: #E8E8E8;
+.nav-box{
+	color: #ffffff;
+	background: initial;
+	border: none;
+	margin: 0 20px;
 }
-
-#search-form input{
-	width: 250px;
-	height: 30px;
-	border-radius: 7px;
+.nav-btn {
+	color: #ffffff;
+	background: initial;
 	border: none;
 }
 
-#search-form button{
-	width: 25px;
-	height: 25px;
-	position: absolute;
-	margin-left: 218px;
-	margin-top: 2px;
-border: none;
-	background: url(https://lh4.googleusercontent.com/-b-5aBxcxarY/UAfFW9lVyjI/AAAAAAAABUg/gQtEXuPuIds/s13/go.png) 50% no-repeat;
+.active-page {
+	border-bottom: 3px solid #FF6B08;
 }
 
-#search-form button:hover{
-	opacity: 0.5;
-}
-
-.load-more{
-display: block;
-visibility: hidden;
-	margin-left: auto;
-		margin-right: auto;
-	font: inherit;
-		padding: 8px;
-		max-width: 320px;
-}
-
-.gallery{
-padding-top: 60px;
+.form-box{
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-}
-
-.photo-card {
-	height: 270px;
-	width: 315px;
-	margin-bottom: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	border-radius: 10px;
-
-}
-.info {
-	padding: 10px;
-	display: flex;
-	justify-content: space-around;
-}
-.info-item{
-	display: flex;
-	width: auto;
-	flex-wrap: wrap;
-	margin: 0;
 	justify-content: center;
 }
 
-img{
-	border-radius: 10px 10px 0 0;
-	height: 200px;
-	width: 315px;
+#search-form {
+	margin-top: 40px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 340px;
 }
+
+#search-form input{
+	padding-bottom: 4px;
+	background-color: initial;
+	border: none;
+	border-bottom: 0.5px solid #FFFFFF;
+	color: #ffffff;
+	width: 100%;
+	outline: none;
+}
+
+#search-form input::placeholder{
+	color: #ffffff;
+}
+
+#search-form input:hover{
+border-bottom: 0.5px solid #FF6B08;
+}
+
+#search-form button{
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	margin-left: 218px;
+	margin-top: 2px;
+	border: none;
+	background-color: initial;
+	background-image: url(../img/search2.svg);
+}
+/*-------------------header section end---------------*/
+
+/*-------------------gallery section start---------------*/
+.gallery{
+	max-width: 900px;
+	margin: 60px auto;
+	display: flex;
+	flex-wrap: wrap;
+	gap:30px;
+	align-items: center;
+}
+
+.movie-card {
+	height: 440px;
+	width: 274px;
+}
+.movie-card img{
+	border-radius: 5px;
+	height: 398px;
+	width: 274px;
+	/*margin-bottom: 10px;*/
+}
+.title {
+	font-size: 12px;
+	font-weight: 500;
+}
+.info-item{
+	display: flex;
+	color: #FF6B08;
+}
+
+
+
